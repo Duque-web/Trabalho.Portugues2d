@@ -1,0 +1,316 @@
+/* Variáveis de cores */
+:root {
+    --cor-primaria: #2c3e50;
+    --cor-secundaria: #34495e;
+    --cor-destaque: blue;
+    --cor-texto: #333;
+    --cor-fundo: #f5f6fa;
+}
+
+/* Reset e estilos gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+/* Header e navegação */
+header {
+    background: linear-gradient(to right, var(--cor-primaria), var(--cor-secundaria));
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Seções principais */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: var(--cor-primaria);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--cor-destaque);
+    animation: deslizarDireita 0.8s ease-out;
+}
+
+/* Cards de autores */
+.autor-card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.autor-card:hover {
+    transform: translateY(-5px);
+}
+
+.autor-card h3 {
+    color: var(--cor-destaque);
+    margin-bottom: 0.5rem;
+}
+
+/* Lista de características */
+#caracteristicas ul {
+    list-style: none;
+}
+
+#caracteristicas li {
+    padding: 0.5rem 0;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+#caracteristicas li::before {
+    content: "•";
+    color: var(--cor-destaque);
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+}
+
+/* Obras */
+.obra {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-left: 4px solid var(--cor-destaque);
+    margin-bottom: 1rem;
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Contexto histórico */
+#contexto ul {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+#contexto li {
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--cor-primaria);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .autor-card {
+        padding: 1rem;
+    }
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulsar {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes deslizarDireita {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes rotacaoSuave {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes brilho {
+    0% { filter: brightness(100%); }
+    50% { filter: brightness(150%); }
+    100% { filter: brightness(100%); }
+}
+
+/* Aplicando as novas animações */
+.autor-card:hover h3 {
+    animation: pulsar 1s infinite;
+}
+
+.galeria-item img:hover {
+    animation: brilho 2s infinite;
+}
+
+/* Galeria de imagens do Romantismo */
+.galeria-romantismo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* Novas classes para imagens adicionais */
+.galeria-item.natureza {
+    border: 2px solid var(--cor-destaque);
+}
+
+.galeria-item.retrato {
+    border: 2px solid var(--cor-primaria);
+}
+
+.galeria-item.paisagem {
+    border: 2px solid var(--cor-secundaria);
+}
+
+.galeria-item.cena-historica {
+    border: 2px solid #8e44ad;
+}
+
+.galeria-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.galeria-item:hover {
+    transform: translateY(-5px);
+}
+
+.galeria-item:hover img {
+    transform: scale(1.05);
+}
+
+.galeria-legenda {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(44, 62, 80, 0.9);
+    color: white;
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.galeria-item:hover .galeria-legenda {
+    transform: translateY(0);
+}
+
+/* Responsividade para a galeria */
+@media (max-width: 768px) {
+    .galeria-romantismo {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+
+    .galeria-item img {
+        height: 250px;
+    }
+}
+
+.alunos-lista {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.aluno {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+    font-size: 1.1em;
+    color: white;
+}
+
+.aluno:nth-child(1) { animation-delay: 0.1s; }
+.aluno:nth-child(2) { animation-delay: 0.2s; }
+.aluno:nth-child(3) { animation-delay: 0.3s; }
+.aluno:nth-child(4) { animation-delay: 0.4s; }
+.aluno:nth-child(5) { animation-delay: 1.0s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
